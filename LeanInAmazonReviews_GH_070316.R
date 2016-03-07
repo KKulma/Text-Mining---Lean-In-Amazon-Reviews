@@ -8,7 +8,7 @@ lapply(pack, require, character.only = TRUE)
 # scraping amazon website
 LeanIn="http://www.amazon.co.uk/product-reviews/0753541645/ref=cm_cr_dp_see_all_summary?ie=UTF8&showViewpoints=1&sortBy=helpful"
 html=read_html(LeanIn)
-reviews=html_nodes(html, ".a-size-base") # nodes defined using SelectorGadget (Chrome)
+reviews=html_nodes(html, ".a-size-base") # css pattern defined using SelectorGadget (Chrome)
 text=html_text(reviews)
 string=paste(text, collapse = " ")
 
@@ -32,7 +32,7 @@ corpus$content
 
 
 ## remove stopwords and other words
-myWords=c("just", "sheryl", "review", "comment", "comments", "also", "many", "much")
+myWords=c("just", "sheryl", "sandberg",  "review", "comment", "comments", "also", "many", "much", "amazon", "will")
 corpus <- tm_map(corpus, removeWords, c(stopwords("english"), myWords)) 
 
 
