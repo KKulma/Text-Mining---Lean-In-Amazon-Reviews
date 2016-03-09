@@ -12,6 +12,13 @@ reviews=html_nodes(html, ".a-size-base") # css pattern defined using SelectorGad
 text=html_text(reviews)
 string=paste(text, collapse = " ")
 
+string=gsub("\\.+", ". ", string) #not-interpreted "."
+string=gsub("\\,", ", ", string)
+string=gsub("\\-", "- ", string)
+string=gsub("\\:", ": ", string)
+string=gsub("\\?", "? ", string)
+string=gsub("\\!", "! ", string)
+string
 
 Lpath=file.path("~", "MEGA", "data-science", "MyProjects", "TextMining", "LeanInRev")
 write.table(string, "~/MEGA/data-science/MyProjects/TextMining/LeanInRev/RevText.txt", sep="/t")
